@@ -36,7 +36,13 @@ section {
     background-color: #fff;
     box-shadow: 0.5rem 1rem rgb(0,0,0,.1);
     padding: 2rem 9%;
+    animation: effects 2s linear;
 
+}
+@keyframes effects {
+    0% {
+      transform: translateY(-100%);
+  }
 }
 .header .logo{
     color: orangered;
