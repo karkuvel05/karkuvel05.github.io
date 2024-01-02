@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="https://fontawesome.com/icons/bowl-food?f=classic&s=solid">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-
 </head>
 <body>
 
@@ -21,8 +20,47 @@
             <a href="#menu">Menu</a>
             <a href="#about">About</a>
             <a href="#footer">Contact</a>
+            <a href="#book">Book</a>      
         </nav>
-        <a href="#book" class="btn">Book A Table</a>
+        <a href="#" class="btn" onclick="document.getElementById('login').style.display='block'">Log in</a>
+        
+        <!-- Pop up Login form -->
+        <div id="login" class="modal">
+            <form class="modal-content animate" method="post" style="width: 500px;">
+                <div class="head">
+                    <h2>Engineer Cafe</h2>
+                    <span type="button"  onclick="document.getElementById('login').style.display='none'" class="btn-close" >&times;</span>
+                </div>
+                <div class="form-content">
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <button class="popbtn" type="submit" style="width: 100%;">Login</button>
+                    <button class="popbtn" onclick="document.getElementById('signup').style.display='block'" style="width: 100%; ">Signup</button>
+                    <label>
+                    <input type="checkbox" checked="checked" name="remember">Remember Me
+                    </label>
+                    </div> 
+                </div>
+            </form>
+        </div>
+
+        <!-- Pop up Signup Form  -->
+        <div id="signup" class="modal">
+            <form class="modal-content animate" method="post" style="width: 500px;">
+                <div class="head">
+                    <h2>Engineer Cafe</h2>
+                    <span type="button"  onclick="document.getElementById('signup').style.display='none'" class="btn-close" >&times;</span>
+                </div>
+                <div class="form-content">
+                    <input type="text" placeholder="User Name" name="uname" required>
+                    <input type="tel" placeholder="Mobile Number" name="mno" required>
+                    <input type="email" placeholder="E-mail" name="email" required>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <input type="password" placeholder="Re-Enter Password" name="psw" required>
+                    <button class="popbtn" type="submit">Sign Up</button> 
+                </div>
+            </form>
+        </div>
     </header>
     <section  class="home" id="home">
         <div class="row">
@@ -37,75 +75,219 @@
     <!-- MENU -->
     <section class="menu" id="menu">
         <h1 class="heading">our menu <span>popular menu</span></h1>
-        <ion-icon name="close" id="cart-close"></ion-icon>
-
-        <div class="container">
-            <div class="shop-content">
-        
-        
-              <div class="food-box">
-                <div class="pic">
-                  <img src="images/1.jpg" class="food-img">
-                </div>
-                <h2 class="food-title">Plain</h2>
-                <span class="food-price">Rs.40</span>
-                <ion-icon name="cart" class="add-cart"></ion-icon>
-              </div>
-        
-        
-              <div class="food-box">
-                <div class="pic"><img src="images/2.jpg" class="food-img"></div>
-                <h2 class="food-title">Paper Roast</h2>
-                <span class="food-price">Rs.65</span>
-                <ion-icon name="cart" class="add-cart"></ion-icon>
-              </div>
-          
-              <div class="food-box">
-                <div class="pic"><img src="images/3.jpg" class="food-img"></div>
-                <h2 class="food-title">Onion Roast</h2>
-                <span class="food-price">Rs.80</span>
-                <ion-icon name="cart" class="add-cart"></ion-icon>
-              </div>
-          
-              <div class="food-box">
-                <div class="pic"><img src="images/4.jpg" class="food-img"></div>
-                <h2 class="food-title">Egg Parotta</h2>
-                <span class="food-price">Rs.55</span>
-                <ion-icon name="cart" class="add-cart"></ion-icon>
-              </div>
-          
-              <div class="food-box">
-                <div class="pic"><img src="images/5.jpg" class="food-img"></div>
-                <h2 class="food-title">Plain Omelette</h2>
-                <span class="food-price">Rs.25</span>
-                <ion-icon name="cart" class="add-cart"></ion-icon>
-              </div>
-          
-              <div class="food-box">
-                <div class="pic"><img src="images/6.jpg" class="food-img"></div>
-                <h2 class="food-title">Kadai Fry</h2>
-                <span class="food-price">Rs.150</span>
-                <ion-icon name="cart" class="add-cart"></ion-icon>
-              </div>
-          
-          
-              <div class="food-box">
-                <div class="pic"><img src="images/7.jpg" class="food-img"></div>
-                <h2 class="food-title">Egg Veechu</h2>
-                <span class="food-price">Rs.65</span>
-                <ion-icon name="cart" class="add-cart"></ion-icon>
-              </div>
-          
-          
-              <div class="food-box">
-                <div class="pic"><img src="images/8.jpg" class="food-img"></div>
-                <h2 class="food-title">Egg Roast</h2>
-                <span class="food-price">Rs.65</span>
-                <ion-icon name="cart" class="add-cart"></ion-icon>
-              </div>
+        <div class="menulist">
+            <button type="button" class="btn-cat active_btn" onclick="changeContent('all')">All Dishes</button>
+            <button type="button" class="btn-cat" onclick="changeContent('lunch')">Lunch</button>
+            <button type="button" class="btn-cat" onclick="changeContent('dinner')">Dinner</button>
+            <button type="button" class="btn-cat" onclick="changeContent('starter')">Starter</button>
         </div>
-      
-    
+        
+        <div class="container" id="all">
+            <div class="menu_items_container">
+                <div class="food_images">
+                    <img src="images/StarterImages/1.jpg" alt="">
+                    <p class="price">Rs.150</p>
+                    <p>Chicken-65</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/StarterImages/2.jpg" alt="">
+                    <p class="price">Rs.80</p>
+                    <p>Coffee</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/StarterImages/3.jpg" alt="">
+                    <p class="price">Rs.180</p>
+                    <p>pasta</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/StarterImages/4.jpg" alt="">
+                    <p class="price">Rs.155</p>
+                    <p>pumpkin soup</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/StarterImages/5.jpg" alt="">
+                    <p class="price">Rs.125</p>
+                    <p>Curry Soup</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/StarterImages/6.jpg" alt="">
+                    <p class="price">Rs.150</p>
+                    <p>Vegetable skewer</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/1.jpg" alt="">
+                    <p class="price">Rs.40</p>
+                    <p>Plain</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/2.jpg" alt="">
+                    <p class="price">Rs.65</p>
+                    <p>Paper Rost</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/9.jpg" alt="">
+                    <p class="price">Rs.265</p>
+                    <p>Chicken Biriyani</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/3.jpg" alt="">
+                    <p class="price">Rs.80</p>
+                    <p>Onion Roast</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/4.jpg" alt="">
+                    <p class="price">Rs.55</p>
+                    <p>Egg Parotta</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/5.jpg" alt="">
+                    <p class="price">Rs.25</p>
+                    <p>Plain Omelette</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/6.jpg" alt="">
+                    <p class="price">Rs.150</p>
+                    <p>Kadai Fry</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/7.jpg" alt="">
+                    <p class="price">Rs.65</p>
+                    <p>Egg Veechu</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/8.jpg" alt="">
+                    <p class="price">Rs.65</p>
+                    <p>Egg Roast</p>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="dinner">
+            <div class="menu_items_container">
+                <div class="food_images">
+                    <img src="images/1.jpg" alt="">
+                    <p class="price">Rs.40</p>
+                    <p>plain</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/2.jpg" alt="">
+                    <p class="price">Rs.65</p>
+                    <p>Paper Rost</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/3.jpg" alt="">
+                    <p class="price">Rs.80</p>
+                    <p>Onion Roast</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/4.jpg" alt="">
+                    <p class="price">Rs.55</p>
+                    <p>Egg Parotta</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/5.jpg" alt="">
+                    <p class="price">Rs.25</p>
+                    <p>Plain Omelette</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/6.jpg" alt="">
+                    <p class="price">Rs.150</p>
+                    <p>Kadai Fry</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/7.jpg" alt="">
+                    <p class="price">Rs.65</p>
+                    <p>Egg Veechu</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/8.jpg" alt="">
+                    <p class="price">Rs.65</p>
+                    <p>Egg Roast</p>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="lunch">
+            <div class="menu_items_container">
+                <div class="food_images">
+                    <img src="images/9.jpg" alt="">
+                    <p class="price">Rs.265</p>
+                    <p>Chicken Biriyani</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/1.jpg" alt="">
+                    <p class="price">Rs.40</p>
+                    <p>plain</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/2.jpg" alt="">
+                    <p class="price">Rs.65</p>
+                    <p>Paper Rost</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/3.jpg" alt="">
+                    <p class="price">Rs.80</p>
+                    <p>Onion Roast</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/4.jpg" alt="">
+                    <p class="price">Rs.55</p>
+                    <p>Egg Parotta</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/5.jpg" alt="">
+                    <p class="price">Rs.25</p>
+                    <p>Plain Omelette</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/6.jpg" alt="">
+                    <p class="price">Rs.150</p>
+                    <p>Kadai Fry</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/7.jpg" alt="">
+                    <p class="price">Rs.65</p>
+                    <p>Egg Veechu</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/8.jpg" alt="">
+                    <p class="price">Rs.65</p>
+                    <p>Egg Roast</p>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="starter">
+            <div class="menu_items_container">
+                <div class="food_images">
+                    <img src="images/StarterImages/1.jpg" alt="">
+                    <p class="price">Rs.150</p>
+                    <p>Chicken-65</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/StarterImages/2.jpg" alt="">
+                    <p class="price">Rs.80</p>
+                    <p>Coffee</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/StarterImages/3.jpg" alt="">
+                    <p class="price">Rs.180</p>
+                    <p>pasta</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/StarterImages/4.jpg" alt="">
+                    <p class="price">Rs.155</p>
+                    <p>pumpkin soup</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/StarterImages/5.jpg" alt="">
+                    <p class="price">Rs.125</p>
+                    <p>Curry Soup</p>
+                </div>
+                <div class="food_images">
+                    <img src="images/StarterImages/6.jpg" alt="">
+                    <p class="price">Rs.150</p>
+                    <p>Vegetable skewer</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- ABOUT -->
@@ -142,8 +324,28 @@
             <input type="text" placeholder="Name" class="box">
             <input type="email" placeholder="Email" class="box">
             <input type="tel" placeholder="Phone Number" class="box">
-            <textarea name="" placeholder="Message" class="box" id="" cols="30" rows="10"></textarea>
-            <input type="submit" value="send message" class="btn">
+            
+            <select name="" id="" class="box">
+                <option value="">Location</option>
+                <option value="">Karapakkam</option>
+                <option value="">Velacherry</option>
+                <option value="">Thoraipakkam</option>
+                <option value="">Tambaram</option>
+                <option value="">Siruseri</option>
+
+
+            </select>
+            <input type="date" placeholder="date" class="box">
+            <input type="number" name="" id="" class="box" placeholder="No of Persons">
+            <select name="" id="" class="box">
+                <option value="">Seasion</option>
+                <option value="">Lunch</option>
+                <option value="">Dinner</option>
+            </select>
+            
+            <input type="submit" value="check Availability" class="btn">
+            <input type="submit" value="Book Table" class="btn">
+            
         </form>
     </section>
 
@@ -151,11 +353,11 @@
         <div class="box-container">
             <div class="box">
                 <h3>our branches</h3>
-                <a href="#"><i class="fas fa-arrow-right"></i> india</a>
-                <a href="#"><i class="fas fa-arrow-right"></i> USA</a>
-                <a href="#"><i class="fas fa-arrow-right"></i> france</a>
-                <a href="#"><i class="fas fa-arrow-right"></i> africa</a>
-                <a href="#"><i class="fas fa-arrow-right"></i> japan</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> Karapakkam</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> Velacherry</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> Thoraipakkam</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> Tambaram</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> Siruseri</a>
             </div>
 
             <div class="box">
@@ -171,8 +373,7 @@
                 <h3>contact info</h3>
                 <a href="#"><i class="fas fa-phone"></i> +91-8777722222</a>
                 <a href="#"><i class="fas fa-phone"></i> +91-8888822222</a>
-                <a href="#"><i class="fas fa-envelope"></i> EnginnerCafe@gmail.com</a>
-                <a href="#"><i class="fas fa-envelope"></i> Karapakkam, Chennai-97</a>
+                <a href="#"><i class="fas fa-envelope"></i>EnginnerCafe@gmail.com</a>
             </div>
 
             <div class="box">
@@ -181,7 +382,6 @@
                 <a href="#"><i class="fab fa-twitter"></i> twitter</a>
                 <a href="#"><i class="fab fa-instagram"></i> instagram</a>
                 <a href="#"><i class="fab fa-linkedin"></i> linkedin</a>
-                <a href="#"><i class="fab fa-twitter"></i> twitter</a>
             </div>
         </div>
 
@@ -193,6 +393,7 @@
 
 
 
+   
 
 
 
@@ -221,17 +422,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+   
 
 
 
