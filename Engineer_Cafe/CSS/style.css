@@ -286,6 +286,7 @@ section {
 #menu
 {
     padding: 10rem 0;
+
 }
 
 .food_lover_container
@@ -408,6 +409,15 @@ section {
     background-color: #000;
     background-color: rgba(0,0,0,0.4);
     padding-top: 60px;
+}
+
+#login form{
+    width: 500px;
+
+}
+#sigup form{
+    width: 500px;
+    
 }
 
 .modal-content
@@ -590,15 +600,41 @@ input[type=text], input[type=password],input[type=tel] ,input[type=email]
     }
 }
 @media (max-width: 768px) {
+
+   
    
     .menu_items_container{
         grid-template-columns: repeat(2,1fr);
     }
 }
 @media (max-width: 520px) {
+     .menu .menulist .btn-cat
+    {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+
+    }
+
+    #login form{
+        width: 400px;
+    }
+    #sigup form{
+        width: 400px;
+    }
    
     .menu_items_container{
         grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width: 420px)
+{
+    #login form{
+        width: 280px;
+
+    }
+    #sigup form{
+        width: 280px;
     }
 }
 
